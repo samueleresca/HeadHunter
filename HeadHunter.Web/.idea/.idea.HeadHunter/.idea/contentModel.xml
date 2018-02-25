@@ -11,7 +11,7 @@
       </e>
       <e p="HeadHunter.API.csproj" t="IncludeRecursive" />
       <e p="Infrastructure" t="Include">
-        <e p="DataContext.cs" t="Include" />
+        <e p="FeedbackContext.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
         <e p="Feedback.cs" t="Include" />
