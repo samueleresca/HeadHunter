@@ -10,6 +10,13 @@
         <e p="ValuesController.cs" t="Include" />
       </e>
       <e p="HeadHunter.API.csproj" t="IncludeRecursive" />
+      <e p="Infrastructure" t="Include">
+        <e p="DataContext.cs" t="Include" />
+      </e>
+      <e p="Models" t="Include">
+        <e p="Feedback.cs" t="Include" />
+        <e p="Identity.cs" t="Include" />
+      </e>
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp2.0" t="Include">
@@ -18,6 +25,9 @@
         </e>
       </e>
       <e p="Program.cs" t="Include" />
+      <e p="Repositories" t="Include">
+        <e p="FeedbackRepository.cs" t="Include" />
+      </e>
       <e p="Startup.cs" t="Include" />
       <e p="wwwroot" t="Include" />
     </e>
