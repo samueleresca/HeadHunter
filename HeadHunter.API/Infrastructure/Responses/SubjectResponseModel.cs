@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using HeadHunter.API.Models;
 
-namespace ToggleSys.API.Models.Responses
+namespace HeadHunter.API.Infrastructure.Responses
 {
 	public class SubjectResponseModel
 	{

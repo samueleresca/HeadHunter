@@ -1,9 +1,16 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeadHunter.Web", "HeadHunter.Web.csproj", "{4F4CB29A-F804-4FD7-989E-08ED4DC229FC}"
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeadHunter.Web", "HeadHunter.Web.csproj", "{4F4CB29A-F804-4FD7-989E-08ED4DC229FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeadHunter.API", "..\HeadHunter.API\HeadHunter.API.csproj", "{93611181-2DB0-4C18-964E-1FF961C10CC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeadHunter.API", "..\HeadHunter.API\HeadHunter.API.csproj", "{93611181-2DB0-4C18-964E-1FF961C10CC4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3191A372-F6A1-4641-A230-95B685360094}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeadHunter.API.Tests", "..\tests\HeadHunter.API.Tests\HeadHunter.API.Tests.csproj", "{AD396B3C-032F-4667-AF51-0DD788FFB810}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Fixtures", "Common.Fixtures\Common.Fixtures.csproj", "{12E52769-35CB-4C29-88DF-6CA2B87DEC0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,5 +26,23 @@ Global
 		{93611181-2DB0-4C18-964E-1FF961C10CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93611181-2DB0-4C18-964E-1FF961C10CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93611181-2DB0-4C18-964E-1FF961C10CC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD396B3C-032F-4667-AF51-0DD788FFB810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD396B3C-032F-4667-AF51-0DD788FFB810}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD396B3C-032F-4667-AF51-0DD788FFB810}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD396B3C-032F-4667-AF51-0DD788FFB810}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12E52769-35CB-4C29-88DF-6CA2B87DEC0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12E52769-35CB-4C29-88DF-6CA2B87DEC0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12E52769-35CB-4C29-88DF-6CA2B87DEC0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12E52769-35CB-4C29-88DF-6CA2B87DEC0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AD396B3C-032F-4667-AF51-0DD788FFB810} = {3191A372-F6A1-4641-A230-95B685360094}
+		{12E52769-35CB-4C29-88DF-6CA2B87DEC0B} = {3191A372-F6A1-4641-A230-95B685360094}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {18C59632-2532-442E-BCD0-FC8D4807E666}
 	EndGlobalSection
 EndGlobal
