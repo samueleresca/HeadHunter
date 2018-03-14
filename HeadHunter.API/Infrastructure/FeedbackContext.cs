@@ -10,6 +10,13 @@ namespace HeadHunter.API.Infrastructure
         }
 
         public DbSet<Feedback> Feedbacks { get; set; }
-        public DbSet<Identity> Identities { get; set; }
+        public DbSet<Subject> Subjects { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Subject>()
+                .HasIndex(u => u.Email)
+                .IsUnique();
+        }
     }
 }

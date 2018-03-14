@@ -9,3 +9,14 @@
 /Users/samueleresca/Projects/HeadHunter/HeadHunter.API/obj/Debug/netcoreapp2.0/HeadHunter.API.AssemblyInfo.cs
 /Users/samueleresca/Projects/HeadHunter/HeadHunter.API/obj/Debug/netcoreapp2.0/HeadHunter.API.dll
 /Users/samueleresca/Projects/HeadHunter/HeadHunter.API/obj/Debug/netcoreapp2.0/HeadHunter.API.pdb
+C:\Projects\HeadHunter\HeadHunter.API\bin\Debug\netcoreapp2.0\HeadHunter.API.deps.json
+C:\Projects\HeadHunter\HeadHunter.API\bin\Debug\netcoreapp2.0\HeadHunter.API.runtimeconfig.json
+C:\Projects\HeadHunter\HeadHunter.API\bin\Debug\netcoreapp2.0\HeadHunter.API.runtimeconfig.dev.json
+C:\Projects\HeadHunter\HeadHunter.API\bin\Debug\netcoreapp2.0\HeadHunter.API.dll
+C:\Projects\HeadHunter\HeadHunter.API\bin\Debug\netcoreapp2.0\HeadHunter.API.pdb
+C:\Projects\HeadHunter\HeadHunter.API\obj\Debug\netcoreapp2.0\HeadHunter.API.csprojResolveAssemblyReference.cache
+C:\Projects\HeadHunter\HeadHunter.API\obj\Debug\netcoreapp2.0\HeadHunter.API.csproj.CoreCompileInputs.cache
+C:\Projects\HeadHunter\HeadHunter.API\obj\Debug\netcoreapp2.0\HeadHunter.API.AssemblyInfoInputs.cache
+C:\Projects\HeadHunter\HeadHunter.API\obj\Debug\netcoreapp2.0\HeadHunter.API.AssemblyInfo.cs
+C:\Projects\HeadHunter\HeadHunter.API\obj\Debug\netcoreapp2.0\HeadHunter.API.dll
+C:\Projects\HeadHunter\HeadHunter.API\obj\Debug\netcoreapp2.0\HeadHunter.API.pdb
