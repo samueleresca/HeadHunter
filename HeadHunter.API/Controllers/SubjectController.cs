@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using AutoMapper;
+using HeadHunter.API.Infrastructure.Logging;
 using HeadHunter.API.Infrastructure.Requests.Service;
 using HeadHunter.API.Infrastructure.Responses;
 using HeadHunter.API.Models;
@@ -12,8 +13,6 @@ using HeadHunter.API.Services;
 using Microsoft.ApplicationInsights.AspNetCore.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ToggleSys.API.Infrastructure.Logging;
-using ToggleSys.API.Models.Requests.Service;
 
 namespace HeadHunter.API.Controllers
 {

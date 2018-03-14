@@ -1,4 +1,4 @@
-﻿namespace ToggleSys.API.Models.Requests.Service
+﻿namespace HeadHunter.API.Infrastructure.Requests.Service
 {
 	public class UpdateSubjectRequest
 	{

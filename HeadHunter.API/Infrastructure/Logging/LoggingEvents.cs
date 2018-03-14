@@ -1,4 +1,4 @@
-﻿namespace ToggleSys.API.Infrastructure.Logging
+﻿namespace HeadHunter.API.Infrastructure.Logging
 {
 	public static class LoggingEvents
 	{

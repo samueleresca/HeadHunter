@@ -1,90 +1,106 @@
-﻿//using System.Collections.Generic;
-//using System.Net;
-//using System.Threading.Tasks;
-//using AutoMapper;
-//using Common.Fixtures;
-//using Microsoft.AspNetCore.Http;
-//using Microsoft.AspNetCore.Mvc;
-//using Microsoft.Extensions.Logging;
-//using Moq;
-//using ToggleSys.API.Controllers;
-//using ToggleSys.API.Models.Requests.Service;
-//using ToggleSys.API.Models.Responses;
-//using ToggleSys.Data.Models;
-//using ToggleSys.Data.Repositories;
-//using ToggleSys.Services.Providers;
-//using Xunit;
+﻿using System.Collections.Generic;
+using System.Net;
+using System.Threading.Tasks;
+using AutoMapper;
+using Common.Fixtures;
+using HeadHunter.API.Controllers;
+using HeadHunter.API.Infrastructure.Requests.Service;
+using HeadHunter.API.Infrastructure.Responses;
+using HeadHunter.API.Models;
+using HeadHunter.API.Repositories;
+using HeadHunter.API.Services;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Moq;
+using Xunit;
 
-//namespace ToggleSys.API.Tests.Controllers
-//{
-//    public class ServiceControllerTests : IClassFixture<TestFixture<Startup>>
-//    {
-//        public ServiceControllerTests(TestFixture<Startup> fixture)
-//        {
-//            ToggleRepository = ToggleMockRepository.GetRepository();
-//            ServiceRepository = ServiceMockRepository.GetRepository();
+namespace HeadHunter.API.Tests.Controllers
+{
+    public class ServiceControllerTests : IClassFixture<TestFixture<Startup>>
+    {
+        public ServiceControllerTests(TestFixture<Startup> fixture)
+        {
+            SubjectRepository = SubjectMockRepository.GetRepository();
 
-//            var imapper = (IMapper)fixture.Server.Host.Services.GetService(typeof(IMapper));
-//            var ilogger =
-//                (ILogger<ServiceController>)fixture.Server.Host.Services.GetService(typeof(ILogger<ServiceController>));
-//            var srv = new ServiceProvider(ServiceRepository.Object);
+            var imapper = (IMapper)fixture.Server.Host.Services.GetService(typeof(IMapper));
+            var ilogger =
+                (ILogger<SubjectController>)fixture.Server.Host.Services.GetService(typeof(ILogger<SubjectController>));
+            var srv = new SubjectService(SubjectRepository.Object);
 
-//            //SERVICES CONFIGURATIONS
-//            _sut = new ServiceController(imapper, ilogger, srv)
-//            {
-//                ControllerContext = new ControllerContext { HttpContext = new DefaultHttpContext() }
-//            };
-//            _sut.ControllerContext.HttpContext.Request.Scheme = "http";
-//            _sut.ControllerContext.HttpContext.Request.Host = new HostString("fakehost", 4000);
-//        }
+            //SERVICES CONFIGURATIONS
+            _sut = new SubjectController(imapper, ilogger, srv)
+            {
+                ControllerContext = new ControllerContext { HttpContext = new DefaultHttpContext() }
+            };
+            _sut.ControllerContext.HttpContext.Request.Scheme = "http";
+            _sut.ControllerContext.HttpContext.Request.Host = new HostString("fakehost", 4000);
+        }
 
-//        private Mock<IToggleRepository> ToggleRepository { get; }
-//        private Mock<IServiceRepository> ServiceRepository { get; }
+        private Mock<ISubjectRepository> SubjectRepository { get; }
 
-//        private ServiceController _sut { get; }
+        private SubjectController _sut { get; }
 
-//        [Theory]
-//        [InlineData("Service_Test", "v1", "http://serivce1//subscribeendpoint")]
-//        public async Task GetById_Should_Return_Correct_Value(string name, string version, string subscribeEndpoint)
-//        {
-//            //Act
-//            var result = await _sut.Get(name, version) as OkObjectResult;
-//            // Assert
-//            ServiceRepository.Verify(x => x.Find(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
-//            Assert.Equal(result.StatusCode, (int)HttpStatusCode.OK);
-//            Assert.Equal(((ServiceDetailResponseModel)result.Value).Name, name);
-//            Assert.Equal(((ServiceDetailResponseModel)result.Value).Version, version);
-//            Assert.Equal(((ServiceDetailResponseModel)result.Value).SubscriptionEndpoint, subscribeEndpoint);
-//        }
+        [Theory]
+        [InlineData("Samuele", "Resca", "samuele.resca@gmail.com")]
+        public async Task GetAll_Should_Return_Correct_Value(string name, string surname, string email)
+        {
+            //Act
+            var result =  _sut.Get() as OkObjectResult;
+            // Assert
+            SubjectRepository.Verify(x => x.GetAll(), Times.Once);
+            Assert.Equal(result.StatusCode, (int)HttpStatusCode.OK);
+            Assert.Equal(((SubjectResponseModel)result.Value).Name, name);
+            Assert.Equal(((SubjectResponseModel)result.Value).Surname, surname);
+            Assert.Equal(((SubjectResponseModel)result.Value).Email, email);
+        }
+
+        [Theory]
+        [InlineData("Samuele", "Resca", "samuele.resca@gmail.com", 1)]
+        public async Task GetById_Should_Return_Correct_Value(string name, string surname, string email, int id)
+        {
+            //Act
+            var result = await _sut.GetById(id) as OkObjectResult;
+            // Assert
+            SubjectRepository.Verify(x => x.GetById(It.IsAny<int>()), Times.Once);
+            Assert.Equal(result.StatusCode, (int)HttpStatusCode.OK);
+            Assert.Equal(((SubjectResponseModel)result.Value).Name, name);
+            Assert.Equal(((SubjectResponseModel)result.Value).Surname, surname);
+            Assert.Equal(((SubjectResponseModel)result.Value).Id, id);
+        }
 
 
-//        [Theory]
-//        [InlineData("Test", "v3", "https://service1/subscribeendpoint")]
-//        public async Task Insert_Should_Return_Added_Value(string name, string version, string subscribeEndpoint)
-//        {
-//            //Assert
-//            var entity = new CreateServiceRequest { Name = name, Version = version, SubscriptionEndpoint = subscribeEndpoint };
-//            //Act
-//            var result = await _sut.Create(entity) as CreatedResult;
-//            // Assert
-//            ServiceRepository.Verify(x => x.Add(It.IsAny<Service>()), Times.Once);
+        [Theory]
+        [InlineData("Samuele", "Resca", "samuele.resca@gmail.com", 1)]
+        public async Task GetByEmail_Should_Return_Correct_Value(string name, string surname, string email, int id)
+        {
+            //Act
+            var result = await _sut.GetByEmail(email) as OkObjectResult;
+            // Assert
+            SubjectRepository.Verify(x => x.GetById(It.IsAny<int>()), Times.Once);
+            Assert.Equal(result.StatusCode, (int)HttpStatusCode.OK);
+            Assert.Equal(((SubjectResponseModel)result.Value).Name, name);
+            Assert.Equal(((SubjectResponseModel)result.Value).Surname, surname);
+            Assert.Equal(((SubjectResponseModel)result.Value).Id, id);
+        }
 
-//            var model = (ServiceResponseModel)result.Value;
-//            Assert.Equal(model.Name, entity.Name);
-//            Assert.Equal(model.Version, entity.Version);
-//            Assert.Equal(model.SubscriptionEndpoint, entity.SubscriptionEndpoint);
-//        }
 
-//        [Fact]
-//        public async Task Get_Should_Return_Values()
-//        {
-//            //Act
-//            var result = await _sut.Get() as OkObjectResult;
+        [Theory]
+        [InlineData("Samuele", "Resca", "samuele.resca@gmail.com")]
+        public async Task Insert_Should_Return_Added_Value(string name, string surname, string email)
+        {
+            //Assert
+            var entity = new CreateSubjectRequest { Name = name, Surname = surname, Email = email };
+            //Act
+            var result = await _sut.Create(entity) as CreatedResult;
+            // Assert
+            SubjectRepository.Verify(x => x.Create(It.IsAny<Subject>()), Times.Once);
 
-//            //Assert
-//            ServiceRepository.Verify(x => x.Get(), Times.Once);
-//            Assert.Equal(result.StatusCode, (int)HttpStatusCode.OK);
-//            Assert.Single((IEnumerable<ServiceResponseModel>)result.Value);
-//        }
-//    }
-//}
+            var model = (SubjectResponseModel)result.Value;
+            Assert.Equal(model.Name, entity.Name);
+            Assert.Equal(model.Surname, entity.Surname);
+            Assert.Equal(model.Email, entity.Email);
+        }
+
+    }
+}

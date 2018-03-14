@@ -15,4 +15,9 @@
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\HeadHunter.API\HeadHunter.API.csproj" />
+    <ProjectReference Include="..\..\HeadHunter.Web\Common.Fixtures\Common.Fixtures.csproj" />
+  </ItemGroup>
+
 </Project>

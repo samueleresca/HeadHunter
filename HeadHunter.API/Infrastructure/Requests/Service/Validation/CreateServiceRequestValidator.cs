@@ -1,9 +1,8 @@
 ﻿using System.Threading.Tasks;
 using FluentValidation;
-using HeadHunter.API.Infrastructure.Requests.Service;
 using HeadHunter.API.Services;
 
-namespace ToggleSys.API.Models.Requests.Service.Validation
+namespace HeadHunter.API.Infrastructure.Requests.Service.Validation
 {
 	public class CreateSubjectRequestValidator : AbstractValidator<CreateSubjectRequest>
 	{

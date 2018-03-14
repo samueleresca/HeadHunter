@@ -19,3 +19,4 @@ C:\Projects\HeadHunter\HeadHunter.API\obj\Debug\netcoreapp2.0\HeadHunter.API.Ass
 C:\Projects\HeadHunter\HeadHunter.API\obj\Debug\netcoreapp2.0\HeadHunter.API.AssemblyInfo.cs
 C:\Projects\HeadHunter\HeadHunter.API\obj\Debug\netcoreapp2.0\HeadHunter.API.dll
 C:\Projects\HeadHunter\HeadHunter.API\obj\Debug\netcoreapp2.0\HeadHunter.API.pdb
+C:\Projects\HeadHunter\HeadHunter.API\obj\Debug\netcoreapp2.0\HeadHunter.API.csprojResolveAssemblyReference.cache

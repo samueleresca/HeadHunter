@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Identity;
 
-namespace ToggleSys.API.Infrastructure.ErrorHandler
+namespace HeadHunter.API.Infrastructure.ErrorHandler
 {
 	public class ErrorHandler : IErrorHandler
 	{
