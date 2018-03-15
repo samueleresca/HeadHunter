@@ -15,5 +15,6 @@ namespace HeadHunter.API.Infrastructure.Responses
 	    public string ProfilePhoto { get; set; }
 	    public SocialContact SocialContact { get; set; }
 	    public IEnumerable<Feedback> Feedbacks { get; set; }
-    }
+	    public bool IsDeleted { get; set; }
+	}
 }

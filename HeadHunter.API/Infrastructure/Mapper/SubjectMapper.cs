@@ -13,6 +13,7 @@ namespace HeadHunter.API.Infrastructure.Mapper
 			CreateMap<SubjectResponseModel, Subject>();
 
 			CreateMap<CreateSubjectRequest, Subject>();
+			CreateMap<UpdateSubjectRequest, Subject>();
 		}
 	}
 }

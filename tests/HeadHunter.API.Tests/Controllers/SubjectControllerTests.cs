@@ -47,7 +47,7 @@ namespace HeadHunter.API.Tests.Controllers
         public async Task GetAll_Should_Return_Correct_Value(string name, string surname, string email)
         {
             //Act
-            var result =  _sut.Get() as OkObjectResult;
+            var result = _sut.Get() as OkObjectResult;
             // Assert
             SubjectRepository.Verify(x => x.GetAll(), Times.Once);
             Assert.Equal(result.StatusCode, (int)HttpStatusCode.OK);
@@ -101,6 +101,36 @@ namespace HeadHunter.API.Tests.Controllers
             Assert.Equal(model.Name, entity.Name);
             Assert.Equal(model.Surname, entity.Surname);
             Assert.Equal(model.Email, entity.Email);
+        }
+
+        [Theory]
+        [InlineData("Sem", "Test", "email", 1)]
+        public async Task Update_Should_Return_Updated_Value(string name, string surname, string email, int id)
+        {
+            //Assert
+            var entity = new UpdateSubjectRequest { Name = name , Surname = surname, Email = email };
+            //Act
+            var result = await _sut.Update(id, entity) as OkObjectResult;
+            // Assert
+            SubjectRepository.Verify(x => x.Update(It.IsAny<int>(),It.IsAny<Subject>()), Times.Once);
+
+            var model = (SubjectResponseModel)result.Value;
+            Assert.Equal(model.Name, entity.Name);
+            Assert.Equal(model.Surname, entity.Surname);
+            Assert.Equal(model.Email, entity.Email);
+        }
+
+        [Theory]
+        [InlineData("Sem", "Test", "email", 1)]
+        public async Task Delete_Should_Return_IsDeleted_Value(string name, string surname, string email, int id)
+        {
+            //Act
+            var result = await _sut.Delete(id) as OkObjectResult;
+            // Assert
+            SubjectRepository.Verify(x => x.Delete(It.IsAny<int>()), Times.Once);
+
+            var model = (SubjectResponseModel)result.Value;
+            Assert.True(model.IsDeleted);
         }
 
     }
