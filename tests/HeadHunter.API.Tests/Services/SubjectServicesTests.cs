@@ -1,11 +1,9 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Common.Fixtures;
 using HeadHunter.API.Models;
 using HeadHunter.API.Repositories;
 using HeadHunter.API.Services;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Moq;
 using Xunit;
 
@@ -13,14 +11,14 @@ namespace HeadHunter.API.Tests.Services
 {
     public class SubjectServicesTests
     {
+        private ISubjectService _sut { get; }
         private Mock<ISubjectRepository> SubjectRepository { get; }
+
         public SubjectServicesTests()
         {
             SubjectRepository = SubjectMockRepository.GetRepository();
             _sut = new SubjectService(SubjectRepository.Object);
         }
-
-        private ISubjectService _sut { get; }
 
         [Theory]
         [InlineData("Samuele", "Resca", "samuele.resca@gmail.com", 1)]

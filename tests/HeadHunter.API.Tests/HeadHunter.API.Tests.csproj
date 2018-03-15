@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\HeadHunter.API\HeadHunter.API.csproj" />
-    <ProjectReference Include="..\..\HeadHunter.Web\Common.Fixtures\Common.Fixtures.csproj" />
+    <ProjectReference Include="..\Common.Fixtures\Common.Fixtures.csproj" />
   </ItemGroup>
 
 </Project>
