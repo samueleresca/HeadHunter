@@ -1,16 +1,20 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Common.Fixtures;
+using HeadHunter.API.Repositories;
 using HeadHunter.API.Services;
+using Moq;
 using Xunit;
 
 namespace HeadHunter.API.Tests.Services
 {
    public class SubjectServicesTests
     {
+        private Mock<ISubjectRepository> SubjectRepository { get; }
         public SubjectServicesTests()
         {
-            _sut = new SubjectService(SubjectMockRepository.GetRepository().Object);
+            SubjectRepository = SubjectMockRepository.GetRepository();
+            _sut = new SubjectService(SubjectRepository.Object);
         }
 
         private ISubjectService _sut { get; }
@@ -22,6 +26,7 @@ namespace HeadHunter.API.Tests.Services
             //Act
             var result =  _sut.GetAll();
             //Assert
+            SubjectRepository.Verify(x => x.GetAll(), Times.Once);
             Assert.Equal(1, result.Count());
 
         }
@@ -33,6 +38,7 @@ namespace HeadHunter.API.Tests.Services
             //Act
             var result = await _sut.GetById(1);
             //Assert
+            SubjectRepository.Verify(x => x.GetById(It.IsAny<int>()), Times.Once);
             Assert.Equal(1, result.Id);
             Assert.Equal(name, result.Name);
             Assert.Equal(surname, result.Surname);
@@ -47,6 +53,7 @@ namespace HeadHunter.API.Tests.Services
             //Act
             var result = await _sut.GetByEmail(email);
             //Assert
+            SubjectRepository.Verify(x => x.GetByEmail(It.IsAny<string>()), Times.Once);
             Assert.Equal(1, result.Id);
             Assert.Equal(name, result.Name);
             Assert.Equal(surname, result.Surname);
