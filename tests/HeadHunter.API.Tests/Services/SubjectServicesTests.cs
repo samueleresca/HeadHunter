@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Common.Fixtures;
+using HeadHunter.API.Models;
 using HeadHunter.API.Repositories;
 using HeadHunter.API.Services;
 using Moq;
@@ -54,6 +55,33 @@ namespace HeadHunter.API.Tests.Services
             var result = await _sut.GetByEmail(email);
             //Assert
             SubjectRepository.Verify(x => x.GetByEmail(It.IsAny<string>()), Times.Once);
+            Assert.Equal(1, result.Id);
+            Assert.Equal(name, result.Name);
+            Assert.Equal(surname, result.Surname);
+            Assert.Equal(email, result.Email);
+        }
+
+        [Theory]
+        [InlineData("Samuele", "Resca", "samuele.resca@gmail.com", 1)]
+        public async Task Create_Should_Add_Value(string name, string surname, string email, int id)
+        {
+            //Act
+            var result = await _sut.Create(new Subject{Name = name, Surname= surname, Email = email});
+            //Assert
+            SubjectRepository.Verify(x => x.Create(It.IsAny<Subject>()), Times.Once);
+            Assert.Equal(name, result.Name);
+            Assert.Equal(surname, result.Surname);
+            Assert.Equal(email, result.Email);
+        }
+
+        [Theory]
+        [InlineData("Samuele", "Resca", "test@gmail.com", 1)]
+        public async Task Update_Should_Modify_Value(string name, string surname, string email, int id)
+        {
+            //Act
+            var result = await _sut.Update(id, new Subject { Name = name, Surname = surname, Email = email });
+            //Assert
+            SubjectRepository.Verify(x => x.Update(It.IsAny<int>(), It.IsAny<Subject>()), Times.Once);
             Assert.Equal(1, result.Id);
             Assert.Equal(name, result.Name);
             Assert.Equal(surname, result.Surname);
