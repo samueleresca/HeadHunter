@@ -55,7 +55,7 @@ namespace HeadHunter.API.Infrastructure.Extensions
 
         public static IServiceCollection AddAutomapper(this IServiceCollection services)
         {
-            services.RemoveAll<Mapper>();
+            services.RemoveAll<AutoMapper.Mapper>();
             services.AddAutoMapper(typeof(Startup));
             return services;
         }

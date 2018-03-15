@@ -78,7 +78,7 @@ namespace HeadHunter.API.Tests.Controllers
             //Act
             var result = await _sut.GetByEmail(email) as OkObjectResult;
             // Assert
-            SubjectRepository.Verify(x => x.GetById(It.IsAny<int>()), Times.Once);
+            SubjectRepository.Verify(x => x.GetByEmail(It.IsAny<string>()), Times.Once);
             Assert.Equal(result.StatusCode, (int)HttpStatusCode.OK);
             Assert.Equal(((SubjectResponseModel)result.Value).Name, name);
             Assert.Equal(((SubjectResponseModel)result.Value).Surname, surname);

@@ -58,7 +58,7 @@ namespace Common.Fixtures
                 .Returns((string email) => Task.Run(() => subjects.First(t => t.Email == email)));
 
             repository.Setup(x => x.GetById(It.IsAny<int>()))
-                .Returns((string name) => Task.Run(() => subjects.First(t => t.Name == name)));
+                .Returns((int id) => Task.Run(() => subjects.First(t => t.Id == id)));
 
             repository.Setup(x => x.Create(It.IsAny<Subject>()))
                 .Callback((Subject s) => subjects.Add(s))
