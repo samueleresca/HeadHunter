@@ -1,33 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using HeadHunter.API.Infrastructure;
+﻿using HeadHunter.API.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace HeadHunter.API
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IHostingEnvironment environment)
         {
             Configuration = configuration;
+            Environment = environment;
         }
+
+        private IHostingEnvironment Environment { get; }
 
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<FeedbackContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            
-            services.AddMvc();
+            services
+                .AddDatabase(Configuration.GetConnectionString("DefaultConnection"))
+                .AddSubjectStack()
+                .AddCustomMvc(Environment.IsDevelopment())
+                .AddAutomapper()
+                .AddSwagger();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

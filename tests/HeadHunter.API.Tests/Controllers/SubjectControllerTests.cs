@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -50,9 +51,9 @@ namespace HeadHunter.API.Tests.Controllers
             // Assert
             SubjectRepository.Verify(x => x.GetAll(), Times.Once);
             Assert.Equal(result.StatusCode, (int)HttpStatusCode.OK);
-            Assert.Equal(((SubjectResponseModel)result.Value).Name, name);
-            Assert.Equal(((SubjectResponseModel)result.Value).Surname, surname);
-            Assert.Equal(((SubjectResponseModel)result.Value).Email, email);
+            Assert.Equal(((List<SubjectResponseModel>)result.Value).First().Name, name);
+            Assert.Equal(((List<SubjectResponseModel>)result.Value).First().Surname, surname);
+            Assert.Equal(((List<SubjectResponseModel>)result.Value).First().Email, email);
         }
 
         [Theory]
