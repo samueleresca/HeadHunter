@@ -1,15 +1,17 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Common.Fixtures;
 using HeadHunter.API.Models;
 using HeadHunter.API.Repositories;
 using HeadHunter.API.Services;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Moq;
 using Xunit;
 
 namespace HeadHunter.API.Tests.Services
 {
-   public class SubjectServicesTests
+    public class SubjectServicesTests
     {
         private Mock<ISubjectRepository> SubjectRepository { get; }
         public SubjectServicesTests()
@@ -22,10 +24,10 @@ namespace HeadHunter.API.Tests.Services
 
         [Theory]
         [InlineData("Samuele", "Resca", "samuele.resca@gmail.com", 1)]
-        public void  GetAll_Should_Return_Correct_Value(string name, string surname, string email, int id)
+        public void GetAll_Should_Return_Correct_Value(string name, string surname, string email, int id)
         {
             //Act
-            var result =  _sut.GetAll();
+            var result = _sut.GetAll();
             //Assert
             SubjectRepository.Verify(x => x.GetAll(), Times.Once);
             Assert.Equal(1, result.Count());
@@ -66,7 +68,7 @@ namespace HeadHunter.API.Tests.Services
         public async Task Create_Should_Add_Value(string name, string surname, string email, int id)
         {
             //Act
-            var result = await _sut.Create(new Subject{Name = name, Surname= surname, Email = email});
+            var result = await _sut.Create(new Subject { Name = name, Surname = surname, Email = email });
             //Assert
             SubjectRepository.Verify(x => x.Create(It.IsAny<Subject>()), Times.Once);
             Assert.Equal(name, result.Name);
@@ -86,6 +88,17 @@ namespace HeadHunter.API.Tests.Services
             Assert.Equal(name, result.Name);
             Assert.Equal(surname, result.Surname);
             Assert.Equal(email, result.Email);
+        }
+
+        [Theory]
+        [InlineData("Samuele", "Resca", "test@gmail.com", 1)]
+        public async Task Delete_Should_Modify_IsDeleted_Field(string name, string surname, string email, int id)
+        {
+            //Act
+            var result = await _sut.Delete(id);
+            //Assert
+            SubjectRepository.Verify(x => x.Delete(It.IsAny<int>()), Times.Once);
+            Assert.True(result.IsDeleted);
         }
     }
 }
