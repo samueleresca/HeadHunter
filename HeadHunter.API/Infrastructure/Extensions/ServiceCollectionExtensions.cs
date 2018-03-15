@@ -9,7 +9,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using AutoMapper;
 using FluentValidation.AspNetCore;
-using Swashbuckle.Swagger;
 
 
 namespace HeadHunter.API.Infrastructure.Extensions
@@ -34,9 +33,6 @@ namespace HeadHunter.API.Infrastructure.Extensions
 
         public static IServiceCollection AddSwagger(this IServiceCollection services)
         {
-            //services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Info { Title = "ToggleSys -  HTTP API", Version = "v1" }); });
-
-            //return services;
             return services;
         }
 
