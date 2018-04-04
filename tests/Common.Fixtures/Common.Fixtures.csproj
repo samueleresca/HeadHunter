@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\HeadHunter.API\HeadHunter.API.csproj" />
+    <ProjectReference Include="..\..\src\HeadHunter.API\HeadHunter.API.csproj" />
   </ItemGroup>
 
 </Project>
