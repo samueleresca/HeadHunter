@@ -44,7 +44,7 @@ namespace HeadHunter.API.Tests.Controllers
 
         [Theory]
         [InlineData("Samuele", "Resca", "samuele.resca@gmail.com")]
-        public async Task GetAll_Should_Return_Correct_Value(string name, string surname, string email)
+        public void GetAll_Should_Return_Correct_Value(string name, string surname, string email)
         {
             //Act
             var result = _sut.Get() as OkObjectResult;

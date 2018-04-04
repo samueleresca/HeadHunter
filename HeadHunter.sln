@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeadHunter.API.Tests", "tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Fixtures", "tests\Common.Fixtures\Common.Fixtures.csproj", "{3E6AB3AE-103B-40DF-950E-42F5A79E2C6D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeadHunter.Web", "src\HeadHunter.Web\HeadHunter.Web.csproj", "{A2858A79-81AB-462A-8903-5E20E470E71F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{3E6AB3AE-103B-40DF-950E-42F5A79E2C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E6AB3AE-103B-40DF-950E-42F5A79E2C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E6AB3AE-103B-40DF-950E-42F5A79E2C6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2858A79-81AB-462A-8903-5E20E470E71F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2858A79-81AB-462A-8903-5E20E470E71F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2858A79-81AB-462A-8903-5E20E470E71F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2858A79-81AB-462A-8903-5E20E470E71F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{1E4BCA8C-24B0-43A6-AD7B-9EC5F6447092} = {A5181346-89EE-46F3-AE5F-F92983FCCFA8}
 		{825DF518-EF12-4B1C-A824-A1918D5024F8} = {5E9395F2-43AC-4BFF-878C-317036E9AB04}
 		{3E6AB3AE-103B-40DF-950E-42F5A79E2C6D} = {5E9395F2-43AC-4BFF-878C-317036E9AB04}
+		{A2858A79-81AB-462A-8903-5E20E470E71F} = {A5181346-89EE-46F3-AE5F-F92983FCCFA8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FE62F78C-2D73-4858-8059-6286BDE128D2}
