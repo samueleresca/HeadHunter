@@ -1,0 +1,40 @@
+// =============================================================================
+// INCLUDES/UTILS/_Z-INDEX.SCSS
+// =============================================================================
+
+$z-layers: (
+    "top" : 200,
+    "preloadOverlay" : 120,
+    "popup" : 110,
+    "popupOverlay" : 100,
+    "header-smartphone" : 95,
+    "tablet-menu": 90,
+    "promo-strip" : 80,
+    "header-right-block" : 70,
+    "sidebar" : 60,
+    "overlay" : 50,
+    "header" : 40,
+    "account-menu": 35,
+    "account-menu-overlay": 32,
+    "desktop-submenu" : 30,
+    "homepage-slideshow-navigation" : 20,
+    "default"   : 10,
+    "bottom"    : 0,
+    "hell"      : -1
+);
+
+@function z($layer) {
+    @if not map-has-key($z-layers, $layer) {
+        @warn "No z-index found in $z-layers map for `#{$layer}`. Property omitted.";
+    }
+
+    @return map-get($z-layers, $layer);
+}
+
+/************************
+
+.modal {
+  z-index: z("default");
+}
+
+*************************/

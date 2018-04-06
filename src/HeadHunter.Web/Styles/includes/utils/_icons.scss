@@ -1,0 +1,369 @@
+// =============================================================================
+// INCLUDES/UTILS/_ICONS.SCSS
+// =============================================================================
+@mixin icon {
+    display: block;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+@mixin icon-close {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/close.svg);
+}
+
+@mixin icon-address {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/address_1.svg);
+    width: 20px;
+    height: 20px;
+}
+@mixin icon-logout {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/logout.svg);
+}
+@mixin icon-info {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/info.svg);
+    width: 60px;
+    height: 20px;
+}
+@mixin icon-shipping {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/shipping.svg);
+    width: 30px;
+    height: 25px;
+}
+
+@mixin icon-password-on {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/password_on.svg);
+    width: 20px;
+    height: 20px;
+}
+@mixin icon-edit {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/edit.svg);
+    width: 20px;
+    height: 20px;
+}
+
+@mixin icon-password-off {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/password_off.svg);
+    width: 20px;
+    height: 20px;
+}
+
+@mixin icon-mail {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/newsletter.svg);
+    width: 24px;
+    height: 24px;
+}
+
+@mixin icon-gift {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/gifting.svg);
+    width: 20px;
+    height: 20px;
+}
+@mixin icon-card-single {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/card.svg);
+    width: 20px;
+    height: 20px;
+}
+@mixin icon-star {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/star.svg);
+    width: 20px;
+    height: 20px;
+}
+@mixin icon-check {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/check.svg);
+    width: 23px;
+    height: 20px;
+}
+@mixin icon-share {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/share.svg);
+}
+
+@mixin icon-menu {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/menu.svg);
+    width: 20px;
+    height: 17px;
+}
+
+@mixin icon-menu-light {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/menu-light.svg);
+    width: 20px;
+    height: 17px;
+}
+
+@mixin icon-search {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/search.svg);
+    width: 16px;
+    height: 16px;
+}
+
+@mixin icon-search-light {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/search-light.svg);
+    width: 16px;
+    height: 16px;
+}
+
+@mixin icon-customer-care {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/customer_care.svg);
+    width: 24px;
+    height: 20px;
+}
+
+@mixin icon-customer-care-light {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/customer_care-light.svg);
+    width: 24px;
+    height: 20px;
+}
+
+@mixin icon-country {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/country.svg);
+    width: 15px;
+    height: 17px;
+}
+
+@mixin icon-country-light {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/country-light.svg);
+    width: 15px;
+    height: 17px;
+}
+
+@mixin icon-login {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/login.svg);
+    width: 16px;
+    height: 17px;
+}
+
+@mixin icon-login-light {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/login-light.svg);
+    width: 16px;
+    height: 17px;
+}
+
+@mixin icon-logged {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/logged.svg);
+    width: 28px;
+    height: 21px;
+}
+
+@mixin icon-logged-light {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/logged-light.svg);
+    width: 29px;
+    height: 21px;
+}
+
+@mixin icon-wishlist {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/wishlist.svg);
+    width: 18px;
+    height: 16px;
+}
+
+@mixin icon-wishlist-light {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/wishlist-light.svg);
+    width: 18px;
+    height: 16px;
+}
+
+@mixin icon-bag {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/bag.svg);
+    width: 21px;
+    height: 19px;
+}
+
+@mixin icon-bag-light {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/bag-light.svg);
+    width: 21px;
+    height: 19px;
+}
+
+@mixin icon-back-to {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/back_to_search.svg);
+    width: 21px;
+    height: 19px;
+}
+
+@mixin icon-checked {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/checked.svg);
+    width: 13px;
+    height: 10px;
+}
+
+@mixin icon-prev {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/arrow_left.svg);
+    width: 13px;
+    height: 13px;
+    background-size: 8px;
+    padding: 20px;
+    background-position: 50%;
+}
+
+@mixin icon-next {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/arrow_right.svg);
+    width: 13px;
+    height: 13px;
+    background-size: 8px;
+    padding: 20px;
+    background-position: 50%;
+}
+
+@mixin icon-returns {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/returns.svg);
+}
+
+@mixin icon-security1 {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/security_1.svg);
+}
+
+@mixin icon-customer-service {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/customerservice.svg);
+}
+
+@mixin icon-card-1 {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/card_1.svg);
+}
+
+@mixin icon-open {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/open.svg);
+}
+
+@mixin icon-open-plus {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/open_plus.svg);
+}
+
+@mixin icon-play-1 {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/play_1.svg);
+}
+
+@mixin icon-pause {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/pause.svg);
+}
+
+@mixin icon-back-to-top {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/back_to_top2.svg);
+    width: 35px;
+    height: 35px;
+}
+
+// =============================================================================
+// SOCIAL ICONS
+// =============================================================================
+@mixin facebook-icon {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/facebook.svg);
+}
+
+@mixin twitter-icon {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/twitter.svg);
+}
+
+@mixin instagram-icon {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/instagram.svg);
+}
+
+@mixin googleplus-icon {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/google_plus.svg);
+}
+@mixin open_plus {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/open_plus.svg);
+    width: 11px;
+    height: 13px;
+}
+@mixin youtube-icon {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/youtube.svg);
+}
+
+@mixin tumblr-icon {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/tumblr.svg);
+}
+
+@mixin pinterest-icon {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/pinterest.svg);
+}
+
+@mixin weibo-icon {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/weibo.svg);
+}
+
+@mixin wechat-icon {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/wechat.svg);
+}
+
+@mixin icon-visa {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/visa.svg);
+}
+
+@mixin icon-mastercard {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/mastercard.svg);
+}
+
+@mixin icon-maestro {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/maestro.svg);
+}
+
+@mixin icon-carte-bleue {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/carte_bleue.svg);
+}
+
+@mixin icon-jbc {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/jcb.svg);
+}
+
+
+@mixin icon-americanexpress {
+    @include icon;
+    background-image: url(#{$cdn-icons-path}/american_express.svg);
+}

@@ -1,0 +1,161 @@
+﻿// =============================================================================
+// INCLUDES/UTILS/_TYPOGRAPHY-MIXINS.SCSS
+// =============================================================================
+
+
+// TYPE STYLES
+// -----------------------------------------------------------------------------
+//
+
+// TODO: rimuovere il colore da typestyle
+
+@mixin type-style-1 {
+    @include REM(font-size, 48px);
+    line-height: 1.25;
+}
+
+@mixin type-style-1-1 {
+    @include REM(font-size, 40px);
+    line-height: 1.1;
+}
+
+@mixin type-style-2 {
+    @include REM(font-size, 36px);
+    line-height: 1.333;
+}
+
+@mixin type-style-tablet-menu {
+    @include REM(font-size, 34px);
+    line-height: 1.333;
+}
+
+@mixin type-style-3 {
+    @include REM(font-size, 32px);
+    line-height: 1.312;
+}
+
+@mixin type-style-3-1() {
+    @include REM(font-size, 20px);
+    line-height: 1.2;
+}
+
+@mixin type-style-4 {
+    @include REM(font-size, 28px);
+    line-height: 1.357;
+}
+
+@mixin type-style-tablet-submenu {
+    @include REM(font-size, 26px);
+    line-height: 1.5;
+    letter-spacing: 1.4px;
+}
+
+@mixin type-style-5 {
+    @include REM(font-size, 24px);
+    line-height: 1.5;
+}
+
+@mixin type-style-6-1() {
+    @include REM(font-size, 20px);
+    line-height: 1.333;
+}
+
+@mixin type-style-6 {
+    @include REM(font-size, 18px);
+    line-height: 1.333;
+}
+
+@mixin type-style-7 {
+    @include REM(font-size, 16px);
+    line-height: 1.2;
+}
+
+@mixin type-style-7-1 {
+    @include REM(font-size, 15px);
+    line-height: 1.4;
+}
+
+@mixin type-style-submenu-title {
+    @include REM(font-size, 15px);
+    line-height: 1.428;
+}
+
+@mixin type-style-8 {
+    @include REM(font-size, 14px);
+    line-height: 1.428;
+}
+
+@mixin type-style-9 {
+    @include REM(font-size, 12px);
+    line-height: 1.666;
+}
+
+@mixin type-style-9-1 {
+    @include REM(font-size, 12px);
+    line-height: 1.4;
+}
+
+@mixin type-style-10 {
+    @include REM(font-size, 10px);
+    line-height: 1.8;
+}
+
+@mixin type-style-10-1 {
+    @include REM(font-size, 10px);
+    line-height: 1.4;
+}
+
+// PARAGRAPHS
+// -----------------------------------------------------------------------------
+//
+
+@mixin general-text {
+    @include REM(margin-top, 6px);
+    @include REM(margin-bottom, 6px);
+    @include type-style-9;
+}
+
+@mixin secondary-information {
+    @include REM(margin-top, 9px);
+    @include REM(margin-bottom, 9px);
+    @include type-style-9;
+    line-height: 2;
+}
+
+@mixin primary-information {
+    @include type-style-7;
+}
+
+// LISTS
+// -----------------------------------------------------------------------------
+//
+
+@mixin list {
+    @include REM(margin-top, 14px);
+    list-style-type: none;
+    padding: 0;
+
+    li {
+        @include REM(font-size, 12px);
+        @include REM(margin-bottom, 11px);
+    }
+}
+
+@mixin list--with-links {
+    li {
+        padding: 0;
+        @include REM(margin-bottom, 1px);
+
+        a {
+            display: inline-block;
+        }
+    }
+}
+
+// LINKS
+// -----------------------------------------------------------------------------
+//
+
+@mixin no-underline {
+    border: none;
+}

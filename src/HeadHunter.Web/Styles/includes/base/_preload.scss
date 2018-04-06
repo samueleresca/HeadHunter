@@ -1,0 +1,29 @@
+.preloadOverlay {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $white;
+    z-index: z("preloadOverlay");
+    transition: visibility 0s linear $default-transition-time, opacity $default-transition-time $transition-function;
+
+    .js-loading & {
+        opacity: .9;
+        visibility: visible;
+        transition-delay: 0s;
+    }
+
+    .spinner {
+        width: 54px;
+        height: 11px;
+        background-image: url(#{$cdn-images-path}/loader.gif);
+        background-size: 100%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

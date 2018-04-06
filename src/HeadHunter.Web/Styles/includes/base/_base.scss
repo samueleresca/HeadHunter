@@ -1,0 +1,112 @@
+﻿// =============================================================================
+// INCLUDES/BASE/_BASE.SCSS
+// =============================================================================
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    &:not(.home):not(.world) {
+        padding-top: $header-height;
+
+        .mainContent {
+            max-width: $main-max-width;
+        }
+    }
+    &.home {
+        padding-top: 0;
+    }
+    &.countries {
+        padding: 0;
+    }
+}
+
+body.js-has-promotions {
+    &:not(.home):not(.cart):not(.world) {
+        padding-top: calc(#{$header-height} + #{$promo-strip-height});
+    }
+}
+
+.mainContent {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.skipLink,
+.stopVideos {
+    position: fixed;
+    top: 5px;
+    z-index: (z("header") + 1);
+    &:not(:focus) {
+        @include is-vHidden;
+    }
+}
+
+.skipLink {
+    left: 5px;
+}
+
+.stopVideos {
+    left: 300px;
+}
+
+.logo {
+    background-image: url(#{$cdn-images-path}/logo.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    .js-header-theme-light & {
+        background-image: url(#{$cdn-images-path}/logo-light.svg);
+    }
+}
+
+body:not(.js-transparent-header):not(.js-center-menu) {
+    .headerLogo .logo:hover {
+        background-image: url(#{$cdn-images-path}/logo_hover.gif);
+    }
+}
+
+.loader {
+    width: 55px;
+    height: 12px;
+    background-image: url(#{$cdn-images-path}/loader.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+// UTILITY CLASSES
+// -----------------------------------------------------------------------------
+
+.hidden {
+    display: none;
+}
+
+.is-vHidden {
+    @include is-vHidden;
+}
+
+.js-bodyBlock {
+    overflow-y: scroll;
+
+    &.js-iOS {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+    }
+
+    &.js-sidebar-open {
+        overflow-y: hidden;
+    }
+}
+
+.js-addFocus:focus {
+    @include set-focus;
+}

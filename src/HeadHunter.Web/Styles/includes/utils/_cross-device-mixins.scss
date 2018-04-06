@@ -1,0 +1,301 @@
+﻿// =============================================================================
+// INCLUDES/UTILS/_CROSS-DEVICE-MIXINS.SCSS
+// =============================================================================
+
+// UNITS
+// -----------------------------------------------------------------------------
+//
+
+@function calculateRem($size) {
+    $remSize: $size / $root-element-font-size;
+
+    @return #{$remSize}rem;
+}
+
+@mixin REM($property, $size) {
+    #{$property}: $size;
+    #{$property}: calculateRem($size);
+}
+
+@mixin set-focus {
+    transition: box-shadow, $default-transition-time, $transition-function;
+    box-shadow: $lightbrown 0 0 6px 0;
+    outline: 0;
+}
+
+@mixin shadow($top-shadow: true) {
+    @if ($top-shadow: true) {
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, .1);
+    } @else {
+        box-shadow: 0 10px 20px -10px rgba(0, 0, 0, .1);
+    }
+}
+
+@mixin revert-shadow {
+    box-shadow: inset -10px 0 20px 0px rgba(0, 0, 0, .1);
+}
+
+@mixin clearfix {
+    &::before,
+    &::after {
+        content: "";
+        display: block;
+        height: 0;
+        overflow: hidden;
+    }
+    &::after {
+        clear: both;
+    }
+    zoom: 1;
+}
+
+@mixin cta-newsletter-subscribe {
+    @include cta;
+    @include REM(min-height, 30px);
+    position: relative;
+    background-color: transparent;
+    color: $black;
+
+    &::after {
+        content: "";
+        margin: 20px auto;
+        @include REM(bottom, 4px);
+        display: block;
+        background-image: url(#{$cdn-icons-path}/arrow.svg);
+        background-repeat: no-repeat;
+        @include REM(background-size, 25px);
+        @include REM(width, 25px);
+        @include REM(height, 15px);
+    }
+}
+
+/*
+  This mixin can be used to set the object-fit:
+  @include object-fit(contain);
+  or object-fit and object-position:
+  @include object-fit(cover, top);
+*/
+
+@mixin object-fit($fit: fill, $position: null) {
+    object-fit: $fit;
+    @if $position {
+        object-position: $position;
+        font-family: "object-fit: #{$fit}; object-position: #{$position}";
+    } @else {
+        font-family: "object-fit: #{$fit}";
+    }
+}
+
+//Video player button
+@mixin big-play-button {
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: (z("default") + 1);
+    background-color: transparent;
+    background-image: url(#{$cdn-icons-path}/play.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    @include REM(width, 85px);
+    @include REM(height, 85px);
+    @include REM(border-radius, 43px);
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity $default-transition-time $non-linear-transition-function;
+    cursor: pointer;
+
+    .js-playing & {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+// UTILITY CLASSES
+// -----------------------------------------------------------------------------
+//
+
+@mixin is-vHidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+@mixin separator {
+    border-top: 1px solid $lightgray;
+    border-bottom: 1px solid $lightgray;
+}
+
+@mixin align-center {
+    margin: 0 auto;
+}
+
+// CUSTOM SCROLLBAR
+// -----------------------------------------------------------------------------
+//
+
+@mixin custom-scroll($bar-color) {
+    border-radius: 10px;
+    background-color: $bar-color;
+}
+
+// FOCUS FOR ACCESSIBILITY
+// -----------------------------------------------------------------------------
+//
+
+@mixin dotted-focus() {
+    border-style: dotted;
+}
+
+@mixin creditCardIcons($iconSelector: "", $showText: false, $width: 53px, $height: 35px) {
+    @if not $showText {
+        .Visa .text,
+        .JCB .text,
+        .AmericanExpress .text,
+        .Mastercard .text,
+        .Switch .text,
+        .Maestro .text,
+        .Discover .text,
+        .CarteBleue .text {
+            display: none;
+        }
+    }
+
+    .Visa,
+    .JCB,
+    .AmericanExpress,
+    .Mastercard,
+    .Switch,
+    .Maestro,
+    .CarteBleue {
+        & #{$iconSelector} {
+            width: $width;
+            height: $height;
+        }
+    }
+
+    .Visa #{$iconSelector} {
+
+        @include icon-visa;
+        display: flex;
+    }
+
+    .JCB #{$iconSelector} {
+        @include icon-jbc;
+        display: flex;
+    }
+
+    .AmericanExpress #{$iconSelector} {
+        @include icon-americanexpress;
+        display: flex;
+    }
+
+    .Mastercard #{$iconSelector} {
+        @include icon-mastercard;
+        display: flex;
+    }
+
+    .Maestro #{$iconSelector} {
+        @include icon-maestro;
+        display: flex;
+    }
+
+    .CarteBleue #{$iconSelector} {
+        @include icon-carte-bleue;
+        display: flex;
+    }
+}
+
+// RADIOBUTTONSTYLE
+// -----------------------------------------------------------------------------
+//
+
+@mixin radioButtonIcon {
+    @include REM(border-radius, 8px);
+    &::after {
+        @include REM(border-radius, 3px);
+        display: none;
+    }
+    &.active::after {
+        display: block;
+        background-color: $black;
+    }
+}
+
+@mixin surveyContainerStyle {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    color: $mid-gray;
+
+    .survey {
+        &.disabled ~ .newsletter-subscribe-labels,
+        &.disabled {
+            opacity: .3;
+        }
+        order: 1;
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+    }
+    ul.preferences {
+        display: flex;
+        margin: 0 auto;
+    }
+}
+
+@mixin preferencesSmartphoneStyle {
+    width: 50%;
+    flex-direction: column;
+
+    li {
+        position: relative;
+        margin-right: 25%;
+        @include REM(margin, 10px);
+        text-align: left;
+        input[type="checkbox"] {
+            left: 0;
+        }
+        .fieldValue {
+            margin-top: 0;
+        }
+    }
+
+    li:nth-child(1) {
+        order: 2;
+    }
+    li:nth-child(2) {
+        order: 3;
+    }
+    li:nth-child(3) {
+        order: 1;
+    }
+
+    label {
+        top: 0;
+        @include REM(left, 20px);
+        @include REM(margin-left, 10px);
+        pointer-events: none;
+    }
+
+    .checkboxIcon {
+        float: left;
+    }
+
+    .checkboxIcon.radioButtonIcon {
+        @include radioButtonIcon;
+    }
+
+    .jp & {
+        label {
+            white-space: nowrap;
+        }
+    }
+}

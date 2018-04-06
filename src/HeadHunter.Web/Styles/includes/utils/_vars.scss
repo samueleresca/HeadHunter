@@ -1,0 +1,102 @@
+﻿// =============================================================================
+// INCLUDES/UTILS/_VARS.SCSS
+// =============================================================================
+
+$root-element-font-size: 16px;
+
+@function calculateRem($size) {
+    $remSize: $size / $root-element-font-size;
+
+    @return #{$remSize}rem;
+}
+
+$cdn-path: "//mycdn";
+$cdn-images-path: "#{$cdn-path}/images";
+$cdn-icons-path: "#{$cdn-path}/icons";
+
+// =============================================================================
+// _VARS.SCSS / TYPOGRAPHY
+// =============================================================================
+
+$cdn-fonts-path: "#{$cdn-path}/fonts";
+$root-element-font-size: 16px;
+
+// =============================================================================
+// _VARS.SCSS / DIMENSIONS
+// =============================================================================
+
+$main-max-width: 1920px;
+$main-checkout-width: 1366px;
+$promo-strip-height: calculateRem(35px);
+$header-height: calculateRem(80px);
+$submenu-padding: calculateRem(50px);
+
+$margin-top-sidebar: calculateRem(40px);
+$margin-top-sidebar-without-promo: calc(#{$header-height} + #{$margin-top-sidebar});
+$margin-top-sidebar-with-promo: calc(#{$header-height} + #{$margin-top-sidebar} + #{$promo-strip-height});
+// IE doesn't render well SVG images with REM unit
+$logo-header-width: 136px;
+$logo-header-height: 27px;
+$logo-homepage-width: 230px;
+$logo-homepage-height: 46px;
+$menu-tablet-width: calculateRem(376px);
+$userbar-desktop-width: calculateRem(355px);
+
+
+// =============================================================================
+// _VARS.SCSS / TRANSITIONS
+// =============================================================================
+$default-transition-time: .2s;
+$slow-transition-time: .6s;
+$itemzoom-transition-time: 1.6s;
+$non-linear-transition-function: cubic-bezier(0, 0, .2, 1);
+$transition-function: cubic-bezier(.57, 0, .07, .99);
+
+// =============================================================================
+// _VARS.SCSS / MAGNIFIC-POPUP-SETTINGS DESKTOP
+// =============================================================================
+// overlay
+$mfp-overlay-opacity: .6;
+$mfp-overlay-color-desktop: #fff !default; // Color of overlay screen
+$mfp-overlay-opacity-desktop: .8 !default; // Opacity of overlay screen
+
+// spacing
+$mfp-popup-padding-left-desktop: calculateRem(8px) !default; // Padding from left and from right side
+$mfp-z-index-base-desktop: z("popup") !default; // Base z-index of popup
+
+//content
+$mfp-content-horizontal-padding-desktop: calculateRem(48px);
+$mfp-content-vertical-padding-desktop: calculateRem(60px);
+
+// controls
+$mfp-controls-text-color-desktop: #ccc !default; // Color of preloader and "1 of X" indicator
+
+// A11y
+$mfp-use-visuallyhidden-desktop: false !default; // Hide content from browsers, but make it available for screen readers
+
+// =============================================================================
+// *************************_VARS.SCSS / SMARTPHONE ONLY************************
+// =============================================================================
+
+// =============================================================================
+// _VARS.SCSS / TYPOGRAPHY SMARTPHONE
+// =============================================================================
+
+$link-vertical-padding-smartphone: calculateRem(12px);
+
+// =============================================================================
+// _VARS.SCSS / DIMENSIONS SMARTPHONE
+// =============================================================================
+
+$promo-strip-height-smartphone: calculateRem(30px);
+$logo-header-height-smartphone: calculateRem(21px);
+$header-height-smartphone: calculateRem(52px);
+$logo-header-width-smartphone: calculateRem(107px);
+$left-sidebar-width-smartphone: 100vw;
+$userbar-width-smartphone: 100vw;
+
+
+$default-secure-password-margin-top: 10px;
+
+$account-max-width-desktop: 1024px;
+$account-max-width-tablet: 570px;

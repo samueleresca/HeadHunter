@@ -1,0 +1,52 @@
+// =============================================================================
+// INCLUDES/UTILS/_SHAPES.SCSS
+// =============================================================================
+
+@mixin arrow($direction: down) {
+    content: "";
+    position: absolute;
+    background: transparent;
+    @include REM(width, 8px);
+    @include REM(height, 8px);
+    border-left: 1px solid $gray;
+    border-bottom: 1px solid $gray;
+
+    @if($direction == down) {
+        transform: rotate(-45deg);
+    }
+}
+
+@mixin cross($color: $black, $width: 10px, $thickness: 1px, $rotation: 45deg) {
+    display: block;
+    position: relative;
+    @include REM(height, $width);
+    @include REM(margin-left, (($width - $thickness) / 2));
+    @include REM(width, $thickness);
+    background-color: $color;
+    transform: rotate($rotation);
+
+    &::after {
+        content: "";
+        position: absolute;
+        @include REM(left, (-(($width - $thickness) / 2)));
+        @include REM(top, (($width - $thickness) / 2));
+        @include REM(width, $width);
+        @include REM(height, $thickness);
+        background-color: $color;
+    }
+}
+
+@mixin minus($color: $black, $width: 10px, $thickness: 1px) {
+    display: block;
+    position: relative;
+    @include REM (width, $width);
+    margin-left: calculateRem((($width - $thickness) / 2));
+    @include REM (height, $thickness);
+    background-color: $color;
+
+    &::after {
+        content: "";
+        width: 0;
+        height: 0;
+    }
+}

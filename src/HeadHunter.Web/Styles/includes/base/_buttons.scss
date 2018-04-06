@@ -1,0 +1,34 @@
+﻿// =============================================================================
+// INCLUDES/BASE/_BUTTONS.SCSS
+// =============================================================================
+
+button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: inherit;
+}
+
+.cta-1 {
+    @include cta-1;
+}
+
+.cta-2 {
+    @include cta-2;
+}
+
+.cta-3 {
+    @include cta-3;
+}
+
+.cta-4 {
+    @include cta-4;
+}
+
+.cta-item {
+    @include cta-item;
+}
+
+.cta-newsletter-subscribe {
+    @include cta-newsletter-subscribe;
+}

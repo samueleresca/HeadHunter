@@ -1,0 +1,161 @@
+﻿// =============================================================================
+// INCLUDES/BASE/_TYPOGRAPHY.SCSS
+// =============================================================================
+
+html {
+    @include REM(letter-spacing, 1px);
+    color: $gray;
+}
+
+// TYPE STYLES
+// -----------------------------------------------------------------------------
+//
+
+.type-style-1 {
+    @include type-style-1;
+}
+
+.type-style-1-1 {
+    @include type-style-1-1;
+}
+
+.type-style-2 {
+    @include type-style-2;
+}
+
+
+.type-style-3 {
+    @include type-style-3;
+}
+
+.type-style-4 {
+    @include type-style-4;
+}
+
+.type-style-5 {
+    @include type-style-5;
+}
+
+.type-style-6 {
+    @include type-style-6;
+}
+
+.type-style-7 {
+    @include type-style-7;
+}
+
+.type-style-7-1 {
+    @include type-style-7-1;
+}
+
+.type-style-8 {
+    @include type-style-8;
+}
+
+.type-style-9 {
+    @include type-style-9;
+}
+
+.type-style-9-1 {
+    @include type-style-9-1;
+}
+
+.type-style-10 {
+    @include type-style-10;
+}
+
+.type-style-10-1 {
+    @include type-style-10-1;
+}
+
+
+// TITLES
+// -----------------------------------------------------------------------------
+//
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: normal;
+}
+
+h1 {
+    @include type-style-2;
+}
+
+h2 {
+    @include type-style-3;
+}
+
+h3 {
+    @include type-style-4;
+}
+
+h1,
+h2,
+h3 {
+    @include REM(letter-spacing, 2px);
+}
+
+// PARAGRAPHS
+// -----------------------------------------------------------------------------
+//
+
+.general-text {
+    @include general-text;
+}
+
+.secondary-information {
+    @include secondary-information;
+}
+
+.primary-information {
+    @include primary-information;
+}
+
+
+// LISTS
+// -----------------------------------------------------------------------------
+//
+
+.list {
+    @include list;
+}
+
+// LINKS
+// -----------------------------------------------------------------------------
+//
+
+a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    transition: color $default-transition-time linear;
+
+    &:hover {
+        color: $black;
+    }
+
+    &.no-underline {
+        @include no-underline;
+    }
+}
+
+// LINES
+// -----------------------------------------------------------------------------
+//
+
+hr {
+    height: 1px;
+    border: none;
+    background-color: $lightgray;
+
+    &.zigzag {
+        height: 9px;
+        background-color: transparent;
+        background-image: url(#{$cdn-images-path}/zigzag-element.svg);
+        background-repeat: repeat-x;
+    }
+}

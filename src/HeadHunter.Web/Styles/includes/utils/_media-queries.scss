@@ -1,0 +1,53 @@
+// =============================================================================
+// INCLUDES/UTILS/_MEDIA-QUERIES.SCSS
+// =============================================================================
+
+// lower than mqs
+// -----------------------------------------------------------------------------
+//
+$mq-tablet-landscape-up: (only screen and (min-width: 1024px));
+$mq-tablet-landscape-down: (only screen and (max-width: 1024px));
+$mq-tablet-landscape-upper: (only screen and (min-width: 1025px));
+$mq-tablet-portrait-upper: (only screen and (min-width: 769px));
+$mq-desktop-up: (only screen and (min-width: 1280px));
+$mq-desktop-1366-up: (only screen and (min-width: 1366px));
+$mq-desktop-1000: (only screen and (max-width: 1000px));
+$mq-desktop-1366: (only screen and (max-width: 1366px));
+$mq-tablet-portrait-down: (only screen and (max-width: 769px));
+$mq-desktop-1367-up: (only screen and (min-width: 1367px));
+$mq-desktop-1920-up: (only screen and (min-width: 1920px));
+$mq-desktop-h900: (only screen and (max-height: 900px));
+
+$mq-sidebar-menu-off: $mq-desktop-up;
+
+// media queries related mixins
+// -----------------------------------------------------------------------------
+//
+
+@mixin show-on-tablet-landscape($display-type: block) {
+    display: none;
+    @media #{$mq-tablet-landscape-up} {
+        display: $display-type;
+    }
+}
+
+@mixin hide-on-tablet-landscape($display-type: block) {
+    display: $display-type;
+    @media #{$mq-tablet-landscape-up} {
+        display: none;
+    }
+}
+
+@mixin show-on-desktop($display-type: block) {
+    display: none;
+    @media #{$mq-desktop-up} {
+        display: $display-type;
+    }
+}
+
+@mixin hide-on-desktop($display-type: block) {
+    display: $display-type;
+    @media #{$mq-desktop-up} {
+        display: none;
+    }
+}

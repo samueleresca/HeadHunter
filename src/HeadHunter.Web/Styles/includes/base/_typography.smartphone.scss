@@ -1,0 +1,173 @@
+﻿// =============================================================================
+// INCLUDES/BASE/_TYPOGRAPHY.SMARTPHONE.SCSS
+// =============================================================================
+
+html {
+    @include REM(letter-spacing, 1px);
+    font-family: "Futura Std", sans-serif;
+    color: $gray;
+}
+
+.jp {
+    font-family: "Hiragino Kaku Gothic ProN", Meiryo, "MS PGothic";
+}
+
+// TYPE STYLES
+// -----------------------------------------------------------------------------
+//
+
+.type-style-1 {
+    @include type-style-1;
+
+}
+
+.type-style-2 {
+    @include type-style-2;
+}
+
+
+.type-style-3 {
+    @include type-style-3;
+}
+
+.type-style-3-1 {
+    @include type-style-3-1;
+}
+
+.type-style-4 {
+    @include type-style-4;
+}
+
+
+.type-style-5 {
+    @include type-style-5;
+}
+
+
+.type-style-6 {
+    @include type-style-6;
+}
+
+
+.type-style-7 {
+    @include type-style-7;
+}
+
+
+.type-style-8 {
+    @include type-style-8;
+}
+
+// TITLES
+// -----------------------------------------------------------------------------
+//
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: normal;
+    margin: 0;
+}
+
+h1 {
+    @include type-style-2;
+}
+
+h2 {
+    @include type-style-3;
+}
+
+h3,
+h4 {
+    @include type-style-4;
+}
+
+h1,
+h2,
+h3 {
+    @include REM(letter-spacing, 2px);
+}
+
+// PARAGRAPHS
+// -----------------------------------------------------------------------------
+//
+
+.general-text {
+    @include REM(margin-top, 6px);
+    @include REM(margin-bottom, 6px);
+    @include type-style-7;
+    color: $gray;
+}
+
+
+// LISTS
+// -----------------------------------------------------------------------------
+//
+
+.list {
+    @include list;
+}
+
+.list--big {
+    @include list--big;
+}
+
+.list--with-links {
+    @include list--with-links;
+}
+
+.list--big.list--with-links {
+    @include list--big-list--with-links;
+}
+
+// LINKS
+// -----------------------------------------------------------------------------
+//
+
+a {
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+    padding: $link-vertical-padding-smartphone 0;
+    /* border-bottom: 1px solid currentColor;
+    transition: color $default-transition-time linear, border-color $default-transition-time linear;
+    */
+    &::after {
+        content: "";
+        border-bottom: 1px solid currentColor;
+        position: absolute;
+        left: 0;
+        right: 0;
+        //@include REM(top, 18px);
+        top: calc(#{$link-vertical-padding-smartphone} + 1em + 2px);
+    }
+
+    &:active {
+        color: $black;
+        //border-color: $black;
+    }
+
+    &.no-underline {
+        @include no-underline;
+    }
+}
+
+// LINES
+// -----------------------------------------------------------------------------
+//
+
+hr {
+    height: 1px;
+    border: none;
+    background-color: $lightgray;
+
+    &.zigzag {
+        margin: 0;
+        height: 12px;
+        background-color: transparent;
+        background-image: url(#{$cdn-images-path}/zigzag-element.svg);
+        background-repeat: repeat-x;
+        background-size: 11px;
+    }
+}
