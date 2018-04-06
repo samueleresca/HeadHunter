@@ -14,7 +14,7 @@ namespace Common.Fixtures
 		public TestFixture()
 		{
 			var builder = new WebHostBuilder()
-				.UseContentRoot($"..\\..\\..\\..\\..\\HeadHunter.API\\")
+				.UseContentRoot($"..\\..\\..\\..\\..\\src\\HeadHunter.API\\")
 				.UseStartup<TStartup>();
 
 			Server = new TestServer(builder);
