@@ -21,7 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Styles\" />
+    <Folder Include="Styles\includes\" />
+    <Folder Include="Styles\includes\blocks\" />
+    <Folder Include="Styles\includes\components\" />
   </ItemGroup>
 
 </Project>
